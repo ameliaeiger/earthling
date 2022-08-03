@@ -1,15 +1,17 @@
-import logo from './logo.svg'
 import './App.css'
-import React, { useEffect, setState, useState } from "react"
+import React, { useEffect, useState } from "react"
 import dayjs from 'dayjs'
+import data from "./data.js"
 
 const App = () => {
+  console.log(data)
   const date = dayjs().format("YYYY-MM-DD")
   const [userFormattedDate, setUserFormattedDate] = useState(dayjs(date).format("MM/DD/YYYY"))
   const [startDate, setStartDate] = useState(date)
   const [endDate, setEndDate] = useState(dayjs(date).subtract(6, "day").format("YYYY-MM-DD"))
 
-  const [NASAData, setNASAData] = useState("")
+  const [NASAData, setNASAData] = useState(data)
+  console.log(data)
 
   // NOT RUNNING
   // const [dateKeys, setDateKeys] = useState("")
@@ -17,17 +19,18 @@ const App = () => {
   const [nEOToday, setNEOToday] = useState("")
 
 
-  useEffect(() => {
-    const fetchNASAData = () => {
-      fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=CQVz4qc29PYDruOh6NPKRzNMtIIYdLMZM589ut8w`)
-        .then(response => response.json())
-        .then(data => {
-          setNASAData(data)
-          return
-        })
-    }
-    fetchNASAData()
-  },[])
+  // useEffect(() => {
+  //   const fetchNASAData = () => {
+  //     fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=CQVz4qc29PYDruOh6NPKRzNMtIIYdLMZM589ut8w`)
+  //       .then(response => response.json())
+  //       .then(data => {
+  //         console.log(data)
+  //         setNASAData(data)
+  //         return
+  //       })
+  //   }
+  //   fetchNASAData()
+  // },[])
 
 
 
@@ -55,9 +58,8 @@ if (!NASAData){
 
     return (
       <div>
-        HELLO, EARTHLINGS! TODAY IS {userFormattedDate}. So far this week, Earth has been threatened by {NASAData.element_count} otherworldly bodies. So far today, you have avoided {NASAData.near_earth_objects[dateKeys[0]].length} near earth objects!
+        HELLO, EARTHLINGS! TODAY IS {userFormattedDate}. So far this week, Earth has encountered {NASAData.element_count} near-Earth objects (NEOs). So far today, you have avoided {NASAData.near_earth_objects[startDate].length} near earth objects!
       
-      {/* {!dateKeys ? console.log("no keys") : dateKeys} */}
       </div>
     )
 }
