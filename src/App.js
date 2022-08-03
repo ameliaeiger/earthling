@@ -10,11 +10,12 @@ const App = () => {
   const [endDate, setEndDate] = useState(dayjs(date).subtract(6, "day").format("YYYY-MM-DD"))
 
   const [NASAData, setNASAData] = useState("")
-  const [dateKeys, setDateKeys] = useState("")
-  const [potentialHazardCount, setPotentialHazardCount] = useState("")
-  const [nearEarthObjectsNum, setNearEarthObjectsNum] = useState("")
 
-  // const dateKeys = Object.keys(NASAData.near_earth_objects)
+  // NOT RUNNING
+  // const [dateKeys, setDateKeys] = useState("")
+  const [potentialHazardCount, setPotentialHazardCount] = useState("")
+  const [nEOToday, setNEOToday] = useState("")
+
 
   useEffect(() => {
     const fetchNASAData = () => {
@@ -22,18 +23,15 @@ const App = () => {
         .then(response => response.json())
         .then(data => {
           setNASAData(data)
-          console.log(NASAData)
           return
         })
     }
     fetchNASAData()
-    // setNearEarthObjectsNum(NASAData.near_earth_objects[startDate].length)
-
   },[])
 
 
 
-  // setDateKeys(Object.keys(NASAData.near_earth_objects))
+
   // const countHazards = () => {
   //   dateKeys.forEach(date => {
   //     console.log(date)
@@ -44,11 +42,22 @@ const App = () => {
   //   })
   // }
 
+
 // WORKING
+let dateKeys
+if (!NASAData){
+  console.log("loading")
+} else {
+  dateKeys = Object.keys(NASAData.near_earth_objects)
+  console.log(dateKeys)
+  console.log("data retrieved")
+}
 
     return (
       <div>
-        HELLO, EARTHLINGS! TODAY IS {userFormattedDate}. So far today, you have avoided {nearEarthObjectsNum} near earth objects!
+        HELLO, EARTHLINGS! TODAY IS {userFormattedDate}. So far this week, Earth has been threatened by {NASAData.element_count} otherworldly bodies. So far today, you have avoided {NASAData.near_earth_objects[dateKeys[0]].length} near earth objects!
+      
+      {/* {!dateKeys ? console.log("no keys") : dateKeys} */}
       </div>
     )
 }
