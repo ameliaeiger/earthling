@@ -3,13 +3,23 @@ import React, { useEffect, useState } from "react"
 import dayjs from 'dayjs'
 // import data from "./data.js"
 // import quotes from "./quotes"
+
+//COMPONENTS
 import NEO from "./components/NEO"
 import POD from "./components/POD"
+import Header from './components/Header'
+
+//ASSETS
+import image from "./assets/lmc.jpeg"
+
 import { fetchNASAData, fetchAPOD } from "./apiCalls"
 
 const App = () => {
   const date = dayjs().format("YYYY-MM-DD")
+  const [dimensions, setDimensions] = useState(window.screen)
   const [loading, setLoading] = useState(true)
+
+  //DATES / DAY.JS
   const [userFormattedDate, setUserFormattedDate] = useState(dayjs(date).format("MM/DD/YYYY"))
   const [startDate, setStartDate] = useState(date)
   const [endDate, setEndDate] = useState(dayjs(date).subtract(6, "day").format("YYYY-MM-DD"))
@@ -18,44 +28,38 @@ const App = () => {
   const [apodData, setApodData] = useState("")
   const [NASAData, setNASAData] = useState("")
   const [dateKeys, setDateKeys] = useState("")
-  console.log(NASAData)
+  // console.log(NASAData)
 
-  useEffect(() => {
-    fetchNASAData(startDate, endDate).then(data => {
-      setNASAData(data)
-      setDateKeys(Object.keys(data.near_earth_objects))
-    })
-    fetchAPOD().then(data => {
-      console.log(data)
-      setApodData(data)
-      console.log(apodData)
-      setLoading(false)
-    })
-  },[])
-
-
-
-
-  // const countHazards = () => {
-  //   dateKeys.forEach(date => {
-  //     console.log(date)
-  //     console.log(NASAData.near_earth_objects[date])
-  //     console.log(NASAData.near_earth_objects[date].is_potentially_hazardous_asteroid)
-  //     let result = NASAData.near_earth_objects[date].is_potentially_hazardous_asteroid
-  //     console.log(result)
+  // useEffect(() => {
+  //   fetchNASAData(startDate, endDate).then(data => {
+  //     setNASAData(data)
+  //     setDateKeys(Object.keys(data.near_earth_objects))
   //   })
-  // }
-
+  //   fetchAPOD().then(data => {
+  //     console.log(data)
+  //     setApodData(data)
+  //     console.log(apodData)
+  //     setLoading(false)
+  //   })
+  // },[])
 
     return (
-      <div>
-        <NEO data={NASAData} date={userFormattedDate} startDate={startDate} />
-        <POD apodData={apodData} />      
+      <div style={{height:dimensions.availHeight, backgroundImage:`url(${image})`, backgroundSize:"cover"}}>
+        <Header />
+        {/* <NEO data={NASAData} date={userFormattedDate} startDate={startDate} />
+        <POD apodData={apodData} />       */}
       </div>
     )
 }
 
 export default App;
+
+const styles = {
+  background: {
+    minHeight: "1500px",
+    backgroundSize: "cover",
+  }
+}
 
 
 
