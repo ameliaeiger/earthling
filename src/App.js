@@ -1,16 +1,20 @@
 import './App.css'
 import React, { useEffect, useState } from "react"
-import dayjs from 'dayjs'
 // import data from "./data.js"
 // import quotes from "./quotes"
+
+//LIBRARIES
+import Globe from './components/Globe'
+import dayjs from 'dayjs'
 
 //COMPONENTS
 import NEO from "./components/NEO"
 import POD from "./components/POD"
 import Header from './components/Header'
+import Footer from "./components/Footer"
 
 //ASSETS
-import image from "./assets/lmc.jpeg"
+import image from "./assets/stars.jpg"
 
 import { fetchNASAData, fetchAPOD } from "./apiCalls"
 
@@ -44,8 +48,14 @@ const App = () => {
   // },[])
 
     return (
-      <div style={{height:dimensions.availHeight, backgroundImage:`url(${image})`, backgroundSize:"cover"}}>
+      <div style={{height:"100%ls
+      ", width:dimensions.availWidth, backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
         <Header />
+        <Globe
+          />
+        <Footer />
+
+
         {/* <NEO data={NASAData} date={userFormattedDate} startDate={startDate} />
         <POD apodData={apodData} />       */}
       </div>
