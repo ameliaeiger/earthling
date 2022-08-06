@@ -9,7 +9,6 @@ import {
 // import quotes from "./quotes"
 
 //LIBRARIES
-import Globe from './components/Globe'
 import dayjs from 'dayjs'
 
 //COMPONENTS
@@ -25,6 +24,7 @@ import DashboardPage from './pages/Dashboard'
 //ASSETS
 import image from "./assets/stars.jpg"
 
+//API CALLS
 import { fetchNASAData, fetchAPOD } from "./apiCalls"
 
 const App = () => {
@@ -59,10 +59,12 @@ const App = () => {
 
 
     return (
-      <Routes>
-        <Route path="/" element={<LandingPage image={image} dimensions={dimensions}/>} />
-        <Route exact path="/dashboard" element={<DashboardPage image={image} dimensions={dimensions}/>} />
-      </Routes>
+      <div style={{height:dimensions.availHeight, width:dimensions.availWidth, backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
+        <Routes>
+          <Route path="/" element={<LandingPage image={image} dimensions={dimensions}/>} />
+          <Route exact path="/dashboard" element={<DashboardPage image={image} dimensions={dimensions}/>} />
+        </Routes>
+      </div>
     )
 }
 

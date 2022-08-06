@@ -7,12 +7,12 @@ import Globe from "../components/Globe"
 
 const LandingPage = ({ image, dimensions}) => {
     return (
-      <div style={{height:dimensions.availHeight, width:dimensions.availWidth, backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
+        <>
         <Header />
         <Globe
             />
         <Footer />
-    </div>
+        </>
     )
   }
 
