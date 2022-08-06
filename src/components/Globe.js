@@ -37,18 +37,8 @@ export default function CustomGlobe() {
     <Globe
         ref={globeEl}
         globeImageUrl={globeImage}
-        // rendererConfig={{}}
         backgroundColor="rgba(0,0,0,0)"
-    //   labelsData={[selectedCountry]}
-    //   labelText={"label"}
-    //   labelSize={1.6}
-    //   labelColor={useCallback(() => "white", [])}
-    //   labelDotRadius={0.4}
-    //   labelAltitude={0.05}
-    //   hexPolygonsData={hex.features}
-      hexPolygonResolution={3} //values higher than 3 makes it buggy
-    //   hexPolygonMargin={0.62}
-    //   hexPolygonColor={useCallback(() => "#1b66b1", [])}
+        hexPolygonResolution={3} //values higher than 3 makes it buggy
     />
     </section>
   );
@@ -56,6 +46,6 @@ export default function CustomGlobe() {
 
 const styles = {
     globeWrapper: {
-        height:"500px"
+        height:"200px"
     }
 }

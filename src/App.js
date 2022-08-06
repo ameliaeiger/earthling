@@ -1,10 +1,14 @@
 import './App.css'
 import React, { useEffect, useState } from "react"
+import {
+  Routes,
+  Route,
+  Link
+} from "react-router-dom"
 // import data from "./data.js"
 // import quotes from "./quotes"
 
 //LIBRARIES
-import Globe from './components/Globe'
 import dayjs from 'dayjs'
 
 //COMPONENTS
@@ -13,9 +17,14 @@ import POD from "./components/POD"
 import Header from './components/Header'
 import Footer from "./components/Footer"
 
+//PAGES
+import LandingPage from './pages/LandingPage'
+import DashboardPage from './pages/Dashboard'
+
 //ASSETS
 import image from "./assets/stars.jpg"
 
+//API CALLS
 import { fetchNASAData, fetchAPOD } from "./apiCalls"
 
 const App = () => {
@@ -47,16 +56,14 @@ const App = () => {
   //   })
   // },[])
 
+
+
     return (
-      <div style={{height:"100%", width:dimensions.availWidth, backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
-        <Header />
-        <Globe
-          />
-        <Footer />
-
-
-        {/* <NEO data={NASAData} date={userFormattedDate} startDate={startDate} />
-        <POD apodData={apodData} />       */}
+      <div style={{height:dimensions.availHeight, width:dimensions.availWidth, backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
+        <Routes>
+          <Route path="/" element={<LandingPage image={image} dimensions={dimensions}/>} />
+          <Route exact path="/dashboard" element={<DashboardPage image={image} dimensions={dimensions}/>} />
+        </Routes>
       </div>
     )
 }
