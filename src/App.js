@@ -48,8 +48,7 @@ const App = () => {
   // },[])
 
     return (
-      <div style={{height:"100%ls
-      ", width:dimensions.availWidth, backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
+      <div style={{height:"100%", width:dimensions.availWidth, backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
         <Header />
         <Globe
           />
