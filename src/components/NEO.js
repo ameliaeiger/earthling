@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { TwitterTimelineEmbed, TwitterShareButton} from 'react-twitter-embed';
 
 let numHazardous
 const NEO = ({ data, date, startDate}) => {
@@ -19,24 +20,29 @@ const getData = (data) => {
     numHazardous = count.length
   }
   
-      // WORKING
-let displayText = "howdy"
-if (!data){
-  console.log("loading")
-} else {
-  displayText = data.near_earth_objects[startDate].length
-  getData(data)
-}
-  
+    // WORKING
+    let displayText = "howdy"
+    if (!data){
+    console.log("loading")
+    } else {
+    displayText = data.near_earth_objects[startDate].length
+    getData(data)
+    }
 
     return (
+        <>
         <div style={styles.neoText}>
             HELLO, EARTHLINGS! TODAY IS {date}. 
             So far this week, Earth has encountered {data.element_count} 
             near-Earth objects (NEOs). So far today, you have encountered {displayText} near earth objects, and avoided  
-            {numHazardous} potentially hazardous situations.       
+            {numHazardous} potentially hazardous situations.
         </div>
-    )
+        <TwitterShareButton
+            url={'https://www.jpl.nasa.gov/missions/near-earth-object-surveyor'}
+            options={{ text: "Hooray! I survived " + displayText + "/" + displayText + " threats to humanity today!"}}
+        />       
+        </>
+)
 }
 
 
@@ -45,6 +51,8 @@ export default NEO
 const styles = {
     neoText: {
         display: "flex",
+        padding: "30px",
+        borderRadius: "30px",
         justifyContent: "center",
         backgroundColor: "rgba(255, 255, 255, 0.5)",
         gridColumn: "1 / span 2",

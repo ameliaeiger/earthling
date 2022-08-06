@@ -35,9 +35,11 @@ export default Header
 const styles = {
     navbar: {
         display: "flex",
+        flexDirection:"row",
+        justifyContent: "center",
         alignItems: "center",
         padding: "5px",
-        minHeight: 100, 
+        minHeight: "10vh", 
         backgroundColor: "rgba(255,255,255, 0.5)",
     },
     button: {
