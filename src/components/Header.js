@@ -11,14 +11,17 @@ const Header = () => {
                 <IconButton
                     edge="start">
                     <Button
-                        variant="text">
+                        variant="contained"
+                        href="/">
                         Landing
                     </Button>
                 </IconButton>
                 <IconButton
                     edge="start">
-                    <Button variant="contained" href="/dashboard">
-                    Link
+                    <Button 
+                        variant="contained"
+                        href="/dashboard">
+                        Dash
                     </Button>
                 </IconButton>
             </AppBar>
