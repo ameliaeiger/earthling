@@ -1,31 +1,21 @@
 import React, { useEffect, useState } from "react"
 import Button from "@mui/material/Button"
-import { AppBar, IconButton } from "@mui/material"
+import { AppBar, IconButton,  } from "@mui/material"
+
+import "./Header.css"
+import alien from "../assets/alien.png"
 
 
 const Header = () => {
     return (
-        <div>
+        <div className="appBarWrapper">
             <AppBar
                 style={styles.navbar}>
-                <IconButton
-                    edge="start">
-                    <Button
-                        variant="contained"
-                        href="/">
-                        Landing
-                    </Button>
-                </IconButton>
-                <IconButton
-                    edge="start">
-                    <Button 
-                        variant="contained"
-                        href="/dashboard">
-                        Dash
-                    </Button>
-                </IconButton>
+                <img 
+                    src={alien}
+                    style={styles.alien}/>
+                <div className="greetingText">greetings, earthling!</div>
             </AppBar>
-
         </div>
     )
 }
@@ -35,14 +25,15 @@ export default Header
 const styles = {
     navbar: {
         display: "flex",
-        flexDirection:"row",
+        flexDirection:"column",
         justifyContent: "center",
         alignItems: "center",
         padding: "5px",
         minHeight: "10vh", 
-        backgroundColor: "rgba(255,255,255, 0.5)",
+        backgroundColor: "rgba(255,255,255, 0.2)",
     },
-    button: {
-
+    alien: {
+        margin:"0px",
+        padding:"0px"
     }
   }

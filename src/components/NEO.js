@@ -16,7 +16,6 @@ const getData = (data) => {
     })
     let count = result.filter(boolean => boolean)
     console.log(result)
-    console.log(count.length)
     numHazardous = count.length
   }
   

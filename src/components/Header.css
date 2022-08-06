@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "earthling";
+    src: url("../assets/earthling.otf");
+}
+
+.appBarWrapper {
+    font-family: "earthling";
+}
+
+.greetingText {
+    font-size: 50px;
+}

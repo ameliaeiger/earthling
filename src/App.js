@@ -65,7 +65,7 @@ const App = () => {
     return (
       <div style={{height:dimensions.availHeight, width:dimensions.availWidth, backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
         <Routes>
-          <Route path="/" element={<LandingPage image={image} dimensions={dimensions}/>} />
+          <Route path="/" element={<LandingPage image={image}/>} />
           <Route exact path="/dashboard" element={
             <DashboardPage 
               dimensions={dimensions} 

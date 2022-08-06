@@ -5,7 +5,7 @@ import Globe from "../components/Globe"
 
 //ASSETS
 
-const LandingPage = ({ image, dimensions}) => {
+const LandingPage = ({ image}) => {
     return (
         <>
         <Header />
