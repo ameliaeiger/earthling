@@ -6,8 +6,10 @@ import dayjs from 'dayjs'
 //COMPONENTS
 import Header from "../components/Header"
 import NEO from "../components/NEO"
+import POD from "../components/POD"
+import { withTheme } from "@emotion/react"
 
-const DashboardPage = ({dimensions, date, startDate, data}) => {
+const DashboardPage = ({dimensions, date, startDate, data, apodData}) => {
 
     return (
         <>
@@ -15,7 +17,7 @@ const DashboardPage = ({dimensions, date, startDate, data}) => {
             <div style={styles.pageWrapper}>
                 <div style={styles.grid}>
                     <NEO data={data} date={date} startDate={startDate} />
-                    {/* <POD apodData={apodData} />       */}
+                    <POD apodData={apodData} />      
                 </div>
             </div>
         </>
@@ -27,14 +29,22 @@ const DashboardPage = ({dimensions, date, startDate, data}) => {
   const styles = {
     pageWrapper: {
         height: "100vh",
+        width:"100%",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
     },
     grid: {
         display: "grid",
-        justifyContent: "space-evenly",
         gridTemplateColumns: "20vw 20vw 20vw 20vw",
+        gridTemplateRows: "20vh 20vh",
         gridGap: "1rem",
+    },
+    container: {
+        color: "white",
+        fontSize:"100px",
+        gridColumn: "3 / span 2",
+        backgroundColor:"rgba(255,255,255, 0.5)",
+        padding: "30px",
     },
 }

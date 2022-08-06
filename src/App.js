@@ -46,24 +46,24 @@ const App = () => {
   const [dateKeys, setDateKeys] = useState("")
   console.log(NASAData)
 
-  // useEffect(() => {
-  //   console.log(startDate, endDate)
+  useEffect(() => {
+    console.log(startDate, endDate)
 
-  //   fetchNASAData(startDate, endDate).then(data => {
-  //     setNASAData(data)
-  //     setDateKeys(Object.keys(data.near_earth_objects))
-  //   })
-  //   fetchAPOD().then(data => {
-  //     setApodData(data)
-  //     console.log(apodData)
-  //   })
-  //   setLoading(false)
-  // },[])
+    fetchNASAData(startDate, endDate).then(data => {
+      setNASAData(data)
+      setDateKeys(Object.keys(data.near_earth_objects))
+    })
+    fetchAPOD().then(data => {
+      setApodData(data)
+      console.log(apodData)
+    })
+    setLoading(false)
+  },[])
 
 
 
     return (
-      <div style={{height:dimensions.availHeight, width:dimensions.availWidth, backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
+      <div style={{height:"100%", width:"100%", backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
         <Routes>
           <Route path="/" element={<LandingPage image={image}/>} />
           <Route exact path="/dashboard" element={
@@ -71,7 +71,8 @@ const App = () => {
               dimensions={dimensions} 
               date={userFormattedDate}
               startDate={startDate}
-              data={NASAData}/>
+              data={NASAData}
+              apodData={apodData}/>
               } />
         </Routes>
       </div>
@@ -82,7 +83,7 @@ export default App;
 
 const styles = {
   background: {
-    minHeight: "1500px",
+    minHeight: "100vh",
     backgroundSize: "cover",
   }
 }
