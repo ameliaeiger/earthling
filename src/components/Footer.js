@@ -32,13 +32,15 @@ export default Footer
 const styles = {
     footer:{
         minHeight:"7vh",
-        width:"100%", 
+        width:"100vw", 
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         position:"fixed",
         bottom:0,
         padding: "5px",
+        borderTopLeftRadius:"10px",
+        borderTopRightRadius:"10px",
         backgroundColor: "rgba(255,255,255, 0.2"
     },
     button: {

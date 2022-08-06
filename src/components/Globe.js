@@ -34,19 +34,28 @@ export default function CustomGlobe() {
 
   return (
     <section style={styles.globeWrapper}>
+      <div style={styles.globeDiv}>
     <Globe
         ref={globeEl}
         globeImageUrl={globeImage}
         backgroundColor="rgba(0,0,0,0)"
         hexPolygonResolution={3} //values higher than 3 makes it buggy
     />
+    </div>
     </section>
   );
 }
 
 const styles = {
+    globeDiv: {
+      display:"flex",
+      justifyContents:"center",
+      alignItems:"center",
+    },
     globeWrapper: {
-        height:"100%",
-        width:"100%"
+        // height:"100%",
+        // width:"100%",
+        justifyContents:"center",
+        alignItems:"center",
     }
 }
