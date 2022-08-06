@@ -27,6 +27,8 @@ import image from "./assets/stars.jpg"
 //API CALLS
 import { fetchNASAData, fetchAPOD } from "./apiCalls"
 
+
+
 const App = () => {
   const date = dayjs().format("YYYY-MM-DD")
   const [dimensions, setDimensions] = useState(window.screen)
@@ -37,23 +39,25 @@ const App = () => {
   const [startDate, setStartDate] = useState(date)
   const [endDate, setEndDate] = useState(dayjs(date).subtract(6, "day").format("YYYY-MM-DD"))
 
+
 // NASA DATA & OBJECT KEYS
   const [apodData, setApodData] = useState("")
   const [NASAData, setNASAData] = useState("")
   const [dateKeys, setDateKeys] = useState("")
-  // console.log(NASAData)
+  console.log(NASAData)
 
   // useEffect(() => {
+  //   console.log(startDate, endDate)
+
   //   fetchNASAData(startDate, endDate).then(data => {
   //     setNASAData(data)
   //     setDateKeys(Object.keys(data.near_earth_objects))
   //   })
   //   fetchAPOD().then(data => {
-  //     console.log(data)
   //     setApodData(data)
   //     console.log(apodData)
-  //     setLoading(false)
   //   })
+  //   setLoading(false)
   // },[])
 
 
@@ -62,7 +66,13 @@ const App = () => {
       <div style={{height:dimensions.availHeight, width:dimensions.availWidth, backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
         <Routes>
           <Route path="/" element={<LandingPage image={image} dimensions={dimensions}/>} />
-          <Route exact path="/dashboard" element={<DashboardPage image={image} dimensions={dimensions}/>} />
+          <Route exact path="/dashboard" element={
+            <DashboardPage 
+              dimensions={dimensions} 
+              date={userFormattedDate}
+              startDate={startDate}
+              data={NASAData}/>
+              } />
         </Routes>
       </div>
     )

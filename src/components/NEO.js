@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react"
-import dayjs from "dayjs"
 
 let numHazardous
-const NEO = ({ date, data, startDate, apodData }) => {
+const NEO = ({ data, date, startDate}) => {
   // NOT RUNNING
 //   const [numHazardous, setNumHazardous] = useState("")
   const [nEOToday, setNEOToday] = useState("")
@@ -27,24 +26,27 @@ if (!data){
 } else {
   displayText = data.near_earth_objects[startDate].length
   getData(data)
-
-
 }
   
 
-
     return (
-        <div>
-        `HELLO, EARTHLINGS! TODAY IS {date}. 
-        So far this week, Earth has encountered {data.element_count} 
-        near-Earth objects (NEOs). So far today, you have encountered {displayText} near earth objects, and avoided 
-        {numHazardous} potentially hazardous situations.`        
+        <div style={styles.neoText}>
+            HELLO, EARTHLINGS! TODAY IS {date}. 
+            So far this week, Earth has encountered {data.element_count} 
+            near-Earth objects (NEOs). So far today, you have encountered {displayText} near earth objects, and avoided  
+            {numHazardous} potentially hazardous situations.       
         </div>
-
-
-        
     )
 }
 
 
 export default NEO
+
+const styles = {
+    neoText: {
+        display: "flex",
+        justifyContent: "center",
+        backgroundColor: "rgba(255, 255, 255, 0.5)",
+        gridColumn: "1 / span 2",
+    }
+}

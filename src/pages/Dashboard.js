@@ -1,17 +1,40 @@
-// import React from "react"
+import React from "react"
 
-// //COMPONENTS
-// import Header from "../components/Header"
-// import NEO from "../components/NEO"
+//LIBRARIES
+import dayjs from 'dayjs'
 
-// const DashboardPage = ({image, dimensions}) => {
-//     return (
-//         <div>
-//         <Header />
-//         <NEO data={NASAData} date={userFormattedDate} startDate={startDate} />
-//         <POD apodData={apodData} />      
-//         </div>
-//     )
-//   }
+//COMPONENTS
+import Header from "../components/Header"
+import NEO from "../components/NEO"
 
-//   export default DashboardPage
+const DashboardPage = ({dimensions, date, startDate, data}) => {
+
+    return (
+        <>
+            <Header />
+            <div style={styles.pageWrapper}>
+                <div style={styles.grid}>
+                    <NEO data={data} date={date} startDate={startDate} />
+                    {/* <POD apodData={apodData} />       */}
+                </div>
+            </div>
+        </>
+    )
+  }
+
+  export default DashboardPage
+
+  const styles = {
+    pageWrapper: {
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    grid: {
+        display: "grid",
+        justifyContent: "space-evenly",
+        gridTemplateColumns: "20vw 20vw 20vw 20vw",
+        gridGap: "1rem",
+    },
+}

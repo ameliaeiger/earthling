@@ -46,6 +46,6 @@ export default function CustomGlobe() {
 
 const styles = {
     globeWrapper: {
-        height:"200px"
+        height:"50vh"
     }
 }

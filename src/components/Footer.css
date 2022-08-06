@@ -1,4 +1,4 @@
-.bottom-wrapper {
+/* .bottom-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,7 +7,7 @@
     padding: 5px;
     min-height: 100; 
     background-color: "rgba(255,255,255, 0.5)";
-}
+} */
 
 button {
     height:50px;
