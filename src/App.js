@@ -47,17 +47,26 @@ const App = () => {
   //   })
   // },[])
 
+  const landingPage = () => {
     return (
-      <div style={{height:"100%", width:dimensions.availWidth, backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
-        <Header />
-        <Globe
-          />
-        <Footer />
+      <div style={{height:dimensions.availHeight, width:dimensions.availWidth, backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
+      <Header />
+      <Globe
+        />
+      <Footer />
+    </div>
+    )
+  }
 
+  const dashboadPage = () => {
+    return (
+            {/* <NEO data={NASAData} date={userFormattedDate} startDate={startDate} />
+      <POD apodData={apodData} />       */}
+    )
+  }
 
-        {/* <NEO data={NASAData} date={userFormattedDate} startDate={startDate} />
-        <POD apodData={apodData} />       */}
-      </div>
+    return (
+      landingPage()
     )
 }
 

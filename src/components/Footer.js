@@ -7,8 +7,20 @@ import "./Footer.css"
 
 
 const Footer = () => {
+    const footerHeight = window.screen.availHeight*.1
     return (
-        <div className="bottom-wrapper">
+        <div style={{
+            height:footerHeight,
+            width:window.screen.availWidth, 
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            position:"fixed",
+            bottom:0,
+            padding: "5px",
+            minHeight:100,
+            backgroundColor: "rgba(255,255,255, 0.5)"
+            }}>
             <button>
                 Hello, World
             </button>
