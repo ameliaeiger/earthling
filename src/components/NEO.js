@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { TwitterTimelineEmbed, TwitterShareButton} from 'react-twitter-embed';
+import { TwitterShareButton} from 'react-twitter-embed'
+
+import "./NEO.css"
 
 let numHazardous
 const NEO = ({ data, date, startDate}) => {
@@ -31,17 +33,20 @@ const getData = (data) => {
     return (
         <>
         <div style={styles.neoText}>
-            HELLO, EARTHLINGS! TODAY IS {date}. 
+            <p style={styles.topText}>HELLO, EARTHLINGS! TODAY IS {date}.</p>
             So far this week, Earth has encountered {data.element_count} 
             near-Earth objects (NEOs). So far today, you have encountered {displayText} near earth objects, and avoided  
             {numHazardous} potentially hazardous situations.
-            <TwitterShareButton
-            url={'https://www.jpl.nasa.gov/missions/near-earth-object-surveyor'}
-            options={{ text: "Hooray! I survived " + displayText + "/" + displayText + " threats to humanity today!"}}
-        />
+                <div>
+                    Brag about it!
+                </div>
+                <TwitterShareButton
+                url={'https://www.jpl.nasa.gov/missions/near-earth-object-surveyor'}
+                options={{ text: "Hooray! I survived " + displayText + "/" + displayText + " threats to humanity today!"}}
+                />
         </div>       
         </>
-)
+    )
 }
 
 
@@ -50,11 +55,17 @@ export default NEO
 const styles = {
     neoText: {
         display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-around",
+        alignItems: "center",
         padding: "30px",
         borderRadius: "30px",
         justifyContent: "center",
         backgroundColor: "rgba(255, 255, 255, 0.5)",
         gridColumn: "3 / span 2",
         gridRow: "1 / span 2",
+    },
+    topText: {
+
     }
 }
