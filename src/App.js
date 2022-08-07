@@ -25,7 +25,9 @@ import DashboardPage from './pages/Dashboard'
 import image from "./assets/stars.jpg"
 
 //API CALLS
-import { fetchNASAData, fetchAPOD } from "./apiCalls"
+import { fetchNASAData, 
+  // fetchAPOD
+ } from "./apiCalls"
 
 
 
@@ -44,26 +46,24 @@ const App = () => {
   const [apodData, setApodData] = useState("")
   const [NASAData, setNASAData] = useState("")
   const [dateKeys, setDateKeys] = useState("")
-  console.log(NASAData)
 
   useEffect(() => {
-    console.log(startDate, endDate)
-
     fetchNASAData(startDate, endDate).then(data => {
       setNASAData(data)
+      console.log("APP NASA DATA SET IN USE EFFECT", data)
       setDateKeys(Object.keys(data.near_earth_objects))
     })
-    fetchAPOD().then(data => {
-      setApodData(data)
-      console.log(apodData)
-    })
+    // fetchAPOD().then(data => {
+    //   setApodData(data)
+    // })
     setLoading(false)
+    console.log("APP LOADING", loading)
   },[])
 
 
 
     return (
-      <div style={{height:"100%", width:"100%", backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
+      <div style={{minHeight:"100vh", minWidth:"100%", backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
         <Routes>
           <Route path="/" element={<LandingPage image={image}/>} />
           <Route exact path="/dashboard" element={

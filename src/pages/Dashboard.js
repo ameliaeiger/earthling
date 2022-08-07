@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 
 //LIBRARIES
 import dayjs from 'dayjs'
@@ -6,18 +6,23 @@ import dayjs from 'dayjs'
 //COMPONENTS
 import Header from "../components/Header"
 import NEO from "../components/NEO"
-import POD from "../components/POD"
-import { withTheme } from "@emotion/react"
+// import POD from "../components/POD"
+import Alert from "../components/Alert"
 
-const DashboardPage = ({dimensions, date, startDate, data, apodData}) => {
+const DashboardPage = ({date, startDate, data, 
+    // apodData
+}) => {
+
 
     return (
         <>
             <Header />
             <div style={styles.pageWrapper}>
                 <div style={styles.grid}>
+                    {/* <Alert data={data} startDate={startDate}/> */}
+                    <Alert neoData={data.near_earth_objects} startDate={startDate} />
                     <NEO data={data} date={date} startDate={startDate} />
-                    <POD apodData={apodData} />      
+                    {/* <POD apodData={apodData} />       */}
                 </div>
             </div>
         </>
@@ -28,17 +33,19 @@ const DashboardPage = ({dimensions, date, startDate, data, apodData}) => {
 
   const styles = {
     pageWrapper: {
-        height: "100vh",
+        minHeight: "100%",
         width:"100%",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
     },
     grid: {
+        marginTop:"8vh",
         display: "grid",
+        maxHeight: "100vh",
         gridTemplateColumns: "20vw 20vw 20vw 20vw",
-        gridTemplateRows: "20vh 20vh",
-        gridGap: "1rem",
+        gridTemplateRows: "200px 200px 200px 200px",
+        gridGap: "3rem",
     },
     container: {
         color: "white",

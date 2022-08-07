@@ -9,8 +9,7 @@ const LandingPage = ({ image}) => {
     return (
         <>
         <Header />
-        <Globe
-            />
+        <Globe />
         <Footer />
         </>
     )

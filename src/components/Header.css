@@ -3,11 +3,17 @@
     src: url("../assets/earthling.otf");
 }
 
+@font-face {
+  font-family: "cuties";
+  src: url("../assets/cuties.ttf");
+}
+
 .appBarWrapper {
-    font-family: "earthling";
+    font-family: "cuties";
 }
 
 .greetingText {
+    display: flex;
     font-size: 80px;
     font-weight: bold;
     margin: 0px 0px 10px 0px;
