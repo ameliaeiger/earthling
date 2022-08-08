@@ -24,13 +24,9 @@ export default function CustomGlobe() {
 
     useEffect(() => {
         globeEl.current.pointOfView({ altitude: 3 }, 5000);
-
-
         globeEl.current.controls().autoRotate = true;
         globeEl.current.controls().autoRotateSpeed = 2;
-        
-        // globeEl.current.controls().update();
-      }, [rotation]);
+              }, [rotation]);
 
   return (
     <section style={styles.globeWrapper}>
@@ -53,8 +49,8 @@ const styles = {
       alignItems:"center",
     },
     globeWrapper: {
-        // height:"100%",
-        // width:"100%",
+        height:"100%",
+        width:"100%",
         justifyContents:"center",
         alignItems:"center",
     }
