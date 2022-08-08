@@ -12,7 +12,16 @@ const Alert = ({ neoData, startDate }) => {
         })
         let count = result.filter(boolean => boolean)
         setPotHaz(count.length)
-        setDisplay(`ALERT!!! YOU ARE ABSOLUTELY FINE! THERE ARE ${potHaz} POTENTIALLY HAZARDOUS NEOs IN YOUR ATMOSPHERE TODAY!`)
+        setDisplay(generateDisplayText(potHaz))
+    }
+
+    const generateDisplayText = (num) => {
+        return (
+            <div style={styles.alertText}>
+                <p style={{fontWeight:"bold", margin:"10px"}}>{"ALERT! YOU ARE ABSOLUTELY FINE!"}</p>
+                <p style={{fontSize:"20px"}}>{`THERE ARE ${num} POTENTIALLY HAZARDOUS NEOs IN YOUR ATMOSPHERE TODAY`}</p>
+            </div>
+        )
     }
 
     useEffect(() => {
@@ -48,5 +57,9 @@ const styles = {
         boxShadow: "0px 0px 20px white, 0px 0px 50px white",   
         gridColumn:"2 / span 4",
         textAlign:"center"
+    },
+    alertText: {
+        display:"flex",
+        flexDirection:"column"
     },
 }

@@ -33,15 +33,11 @@ const NEO = ({ data, date, startDate}) => {
             <p style={styles.topText}>
                 HELLO, EARTHLINGS! TODAY IS {date}.
             </p>
-            <p>
-                {`So far this week, Earth has encountered ${data.element_count}
-                near-Earth objects (NEOs). So far today, you have encountered ${displayText}
-                near earth objects, and avoided ${numHazardous}
-                potentially hazardous situations.`}
-            </p>
-            <div>
+            <p>{`So far this week, Earth has encountered ${data.element_count} near-Earth objects (NEOs).`}</p>
+            <p>{`So far today, you have encountered ${displayText} near earth objects, and avoided ${numHazardous} potentially hazardous situations.`}</p>
+            <p style={styles.boldText}>
                 Brag about it!
-            </div>
+            </p>
             {displayText ? <TwitterShareButton
             url={'https://www.jpl.nasa.gov/missions/near-earth-object-surveyor'}
             options={{ text: "Hooray! I survived " + displayText + "/" + displayText + " threats to humanity today!"}}
@@ -57,7 +53,11 @@ const styles = {
     topText: {
       fontWeight:"bold",
       fontSize:"20px",
-      margin:"20px"
+      margin:"10px"
+    },
+    boldText: {
+      fontWeight:"bold",
+      margin:"10px"
     }
 }
 
