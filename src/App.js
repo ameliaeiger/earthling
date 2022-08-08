@@ -1,10 +1,8 @@
 import './App.css'
 import React, { useEffect, useState } from "react"
 import {
-  HashRouter,
   Routes,
   Route,
-  Navigate,
 } from "react-router-dom"
 
 //LIBRARIES
@@ -12,12 +10,6 @@ import dayjs from 'dayjs'
 
 //ASSETS
 import image from "./assets/stars.jpg"
-
-//COMPONENTS
-import NEO from "./components/NEO"
-import POD from "./components/POD"
-import Header from './components/Header'
-import Footer from "./components/Footer"
 
 //PAGES
 import LandingPage from './pages/LandingPage'
@@ -28,8 +20,6 @@ import {
   fetchNASAData, 
   fetchAPOD
  } from "./apiCalls"
-
-
 
 const App = () => {
   const date = dayjs().format("YYYY-MM-DD")
@@ -59,13 +49,11 @@ const App = () => {
   },[])
 
     return (
-      <div className="App" style={{display:"flex", flexDirection:"column", minHeight:"100vh", minWidth:"100%", backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"center"}}>
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
           <Route path="/dashboard" element={<DashboardPage date={userFormattedDate} startDate={startDate} data={NASAData} apodData={apodData}/>} />
           <Route path="*" element={<LandingPage />} />
         </Routes>
-      </div>
     )
 }
 

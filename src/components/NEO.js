@@ -28,15 +28,8 @@ const NEO = ({ data, date, startDate}) => {
         getData(data)
         }
 
-
-
-
-
-        
-
     return (
         <div className="neoDisplayText">
-            <div style={styles.neoText}>
             <p style={styles.topText}>
                 HELLO, EARTHLINGS! TODAY IS {date}.
             </p>
@@ -53,7 +46,6 @@ const NEO = ({ data, date, startDate}) => {
             url={'https://www.jpl.nasa.gov/missions/near-earth-object-surveyor'}
             options={{ text: "Hooray! I survived " + displayText + "/" + displayText + " threats to humanity today!"}}
             /> : "loading"}
-            </div>
         </div>
     )
 }
@@ -62,17 +54,6 @@ const NEO = ({ data, date, startDate}) => {
 export default NEO
 
 const styles = {
-    neoText: {
-        height:"100%",
-        width:"100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-around",
-        alignItems: "center",
-        borderRadius: "30px",
-        backgroundColor: "rgba(255, 255, 255, 0.55)",
-        textAlign:"center"
-    },
     topText: {
       fontWeight:"bold",
       fontSize:"20px",

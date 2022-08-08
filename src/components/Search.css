@@ -1,3 +1,29 @@
 p {
     margin: 0px;
 }
+
+input {
+    padding:5px;
+}
+
+input:hover {
+    cursor: pointer;
+}
+
+.searchForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height:90%;
+    max-height: 90%;
+    width:100%;
+    border-radius: 100px;
+    background-color: rgba(255, 255, 255, 0.55);
+    background-color: rgba(255, 255, 255, .9);
+    box-shadow: 0px 0px 20px white, 0px 0px 50px white; 
+    font-family:"cafe";
+    grid-row: 2;
+    grid-column:2 / span 2;
+}
+
