@@ -19,41 +19,17 @@ const POD = ({ apodData }) => {
     })
 
     return (
-        <div style={styles.podContainer}>
-            <img className="podImage" src={podURL}/>
-            <p style={styles.podTitle}>{podData.title}</p>
-            <p style={styles.podExplanation}>{podData.explanation}</p>
-        </div>
+        <section className="podContainer">
+            <div className="podDescription">
+                <img className="podImage" src={podURL}/>
+                <p className="nasapod">NASA Image of the Day</p>
+            </div>
+            <div className="podDescription">
+                <p className="podTitle">{podData.title}</p>
+                <p className="podExplanation">{podData.explanation}</p>
+            </div>
+        </section>
     )
 }
 
 export default POD
-
-const styles = {
-    podContainer: {
-        height:"100%",
-        width:"100%",
-        fontFamily: "cafe",
-        display: "flex",
-        borderRadius: "30px",
-        alignItems:"center",
-        backgroundColor: "rgba(255, 255, 255, 0.5)",
-        gridColumn: "2 / span 4",
-        gridRow: "3 / span 2",
-    },
-    podExplanation: {
-        display: "flex",
-        padding:"15px",
-        overflow:"auto",
-        margin:"0px",
-        maxHeight:"100px",
-        maxWidth:"90%"
-    },
-    podTitle: {
-        display:"flex",
-        margin:"5px 0px 0px 0px",
-        padding:"5px",
-        fontSize:"30px",
-        fontWeight:"bold"
-    }
-}

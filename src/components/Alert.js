@@ -22,9 +22,6 @@ const Alert = ({ neoData, startDate }) => {
         if (!potHaz && data){
             getNum(data[startDate])
         }
-        else {
-            console.log("ALERT")
-        }
     })
 
     return (
@@ -47,7 +44,8 @@ const styles = {
         justifyContent:"center",
         alignItems:"center",
         borderRadius: "30px",
-        backgroundColor: "rgba(255, 255, 255, 0.55)",
+        backgroundColor: "rgba(255, 255, 255, .9)",
+        boxShadow: "0px 0px 20px white, 0px 0px 50px white",   
         gridColumn:"2 / span 4",
         textAlign:"center"
     },

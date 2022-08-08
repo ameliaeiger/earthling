@@ -1,8 +1,13 @@
 import React, { useState } from "react"
 import "./NEO.css"
 import { fetchNASAData } from "../apiCalls"
-import { Button } from "@mui/material"
+import { Button, getFormLabelUtilityClasses } from "@mui/material"
 import "./Search.css"
+import dayjs from "dayjs"
+
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 
 const Search = () => {
@@ -41,23 +46,32 @@ const Search = () => {
             </div>
         )
     } 
+    const UserDate = () => {
+        const [startDate, setStartDate] = useState(new Date());
+        return (
+          <DatePicker 
+            selected={startDate} 
+            onChange={date => {
+                let formatted = dayjs(date).format("YYYY-MM-DD")
+                setStartDate(date)
+                setUserInputDate(formatted)
+            }} />
+        )
+      }
 
     return (
-        <div id="searchForm" style={styles.searchForm}>
+        <div id="searchForm" className="searchForm" style={styles.searchForm}>
             <p style={styles.topText}>
                 SEARCH NEOs:
             </p>
         <form style={styles.form}>
-            <label>
-                Date:
-                <input id="search" type="date" name="userInputDate" value={userInputDate} onChange={event => setUserInputDate(event.target.value)}/>
-            </label>
+            {UserDate()}
         </form>
         {isFetching ? <p id="loadingText">loading...</p> : generateResults()}
             <Button
                 id="searchButton"
-                variant="contained"
                 style={styles.button}
+                variant="contained"
                     onClick={event => handleSubmit(event)}
                     >
                     Search
@@ -70,19 +84,6 @@ const Search = () => {
 export default Search
 
 const styles = {
-    searchForm: {
-        fontFamily:"cafe",
-        height:"100%",
-        width:"100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        borderRadius: "30px",
-        backgroundColor: "rgba(255, 255, 255, 0.55)",
-        gridRow: "2",
-        gridColumn:"2 / span 2"
-    },
     form: {
         display:"flex",
         fontSize:"18px",
@@ -90,16 +91,19 @@ const styles = {
         justifyContent:"space-between",
         fontWeight:"bold"
     },
+    button: {
+        fontFamily:"cafe",
+        position:"relative",
+        width:"25%",
+        backgroundColor:"#36d42e",
+        borderRadius:"15px",
+        // marginBottom:"5px"
+    },
     topText: {
       fontWeight:"bold",
       fontSize:"20px",
       margin:"20px 20px 20px 20px",
 
-    },
-    button: {
-        fontFamily:"cafe",
-        width:"25%",
-        backgroundColor:"green"
     },
     resultsGrid: {
         display: "flex",
