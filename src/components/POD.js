@@ -39,8 +39,8 @@ const styles = {
         borderRadius: "30px",
         alignItems:"center",
         backgroundColor: "rgba(255, 255, 255, 0.5)",
-        gridColumn: "1 / span 2",
-        gridRow: "2 / span 2",
+        gridColumn: "1 / span 5",
+        gridRow: "3 / span 2",
     },
     podExplanation: {
         display: "flex",
