@@ -60,19 +60,11 @@ const App = () => {
 
     return (
       <div className="App" style={{display:"flex", flexDirection:"column", minHeight:"100vh", minWidth:"100%", backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"center"}}>
-      <HashRouter basename='/'>
         <Routes>
-          <Route exact path="/" component={<LandingPage />} />
-          <Route path="/dashboard" component={
-            <DashboardPage 
-              date={userFormattedDate}
-              startDate={startDate}
-              data={NASAData}
-              apodData={apodData}/>
-              } />
-          <Route path="*" component={<LandingPage />} />
+          <Route exact path="/" element={<LandingPage />} />
+          <Route path="/dashboard" element={<DashboardPage date={userFormattedDate} startDate={startDate} data={NASAData} apodData={apodData}/>} />
+          <Route path="*" element={<LandingPage />} />
         </Routes>
-      </HashRouter>
       </div>
     )
 }
