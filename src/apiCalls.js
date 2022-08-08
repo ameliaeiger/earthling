@@ -1,6 +1,10 @@
 export const fetchNASAData = (startDate, endDate) => {
+    if (!endDate){
+      return fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${startDate}&api_key=CQVz4qc29PYDruOh6NPKRzNMtIIYdLMZM589ut8w`)
+    } else {
     return fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=CQVz4qc29PYDruOh6NPKRzNMtIIYdLMZM589ut8w`)
       .then(response => response.json())
+    }
   }
 
 export const fetchAPOD = () => {

@@ -8,6 +8,7 @@ import Header from "../components/Header"
 import NEO from "../components/NEO"
 // import POD from "../components/POD"
 import Alert from "../components/Alert"
+import Search from "../components/Search"
 
 const DashboardPage = ({date, startDate, data, 
     // apodData
@@ -17,10 +18,10 @@ const DashboardPage = ({date, startDate, data,
     return (
         <>
             <Header />
-            <div style={styles.pageWrapper}>
+            <div className="dashboard" style={styles.pageWrapper}>
                 <div style={styles.grid}>
-                    {/* <Alert data={data} startDate={startDate}/> */}
                     <Alert neoData={data.near_earth_objects} startDate={startDate} />
+                    <Search />
                     <NEO data={data} date={date} startDate={startDate} />
                     {/* <POD apodData={apodData} />       */}
                 </div>
@@ -43,7 +44,7 @@ const DashboardPage = ({date, startDate, data,
         marginTop:"8vh",
         display: "grid",
         maxHeight: "100vh",
-        gridTemplateColumns: "20vw 20vw 20vw 20vw",
+        gridTemplateColumns: "10vw 15vw 15vw 15vw 15vw 10vh",
         gridTemplateRows: "200px 200px 200px 200px",
         gridGap: "3rem",
     },

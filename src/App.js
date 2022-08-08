@@ -63,7 +63,7 @@ const App = () => {
 
 
     return (
-      <div style={{minHeight:"100vh", minWidth:"100%", backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
+      <div className="App" style={{minHeight:"100vh", minWidth:"100%", backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
         <Routes>
           <Route path="/" element={<LandingPage image={image}/>} />
           <Route exact path="/dashboard" element={

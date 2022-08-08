@@ -12,7 +12,7 @@ const Alert = ({ neoData, startDate }) => {
         })
         let count = result.filter(boolean => boolean)
         setPotHaz(count.length)
-        setDisplay(`ALERT! ${potHaz} POTENTIALLY HAZADOUS NEO IN YOUR ATMOSPHERE TODAY!`)
+        setDisplay(`ALERT!!! YOU ARE ABSOLUTELY FINE! THERE ARE ${potHaz} POTENTIALLY HAZARDOUS NEOs IN YOUR ATMOSPHERE TODAY!`)
     }
 
     useEffect(() => {
@@ -38,14 +38,17 @@ export default Alert
 
 const styles = {
     neoText: {
+        fontFamily:"cafe",
         height:"100%",
         width:"100%",
+        fontWeight:"bold",
+        fontSize:"40px",
         display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-around",
-        alignItems: "center",
+        justifyContent:"center",
+        alignItems:"center",
         borderRadius: "30px",
-        backgroundColor: "rgba(255, 255, 255, 0.5)",
-        gridColumn:"1 / span 4"
+        backgroundColor: "rgba(255, 255, 255, 0.55)",
+        gridColumn:"2 / span 4",
+        textAlign:"center"
     },
 }

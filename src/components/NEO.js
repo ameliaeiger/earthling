@@ -37,7 +37,7 @@ const NEO = ({ data, date, startDate}) => {
     return (
         <div className="neoDisplayText">
             <div style={styles.neoText}>
-            <p>
+            <p style={styles.topText}>
                 HELLO, EARTHLINGS! TODAY IS {date}.
             </p>
             <p>
@@ -50,6 +50,7 @@ const NEO = ({ data, date, startDate}) => {
                 Brag about it!
             </div>
             {displayText ? <TwitterShareButton
+            id="tweetButton"
             url={'https://www.jpl.nasa.gov/missions/near-earth-object-surveyor'}
             options={{ text: "Hooray! I survived " + displayText + "/" + displayText + " threats to humanity today!"}}
             /> : "loading"}
@@ -70,10 +71,13 @@ const styles = {
         justifyContent: "space-around",
         alignItems: "center",
         borderRadius: "30px",
-        backgroundColor: "rgba(255, 255, 255, 0.5)",
+        backgroundColor: "rgba(255, 255, 255, 0.55)",
+        textAlign:"center"
     },
     topText: {
-
+      fontWeight:"bold",
+      fontSize:"20px",
+      margin:"20px"
     }
 }
 
