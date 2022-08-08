@@ -49,13 +49,11 @@ const App = () => {
   },[])
 
     return (
-      // <div className="App" style={{display:"flex", flexDirection:"column", minHeight:"100vh", minWidth:"100%", backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"center"}}>
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
           <Route path="/dashboard" element={<DashboardPage date={userFormattedDate} startDate={startDate} data={NASAData} apodData={apodData}/>} />
           <Route path="*" element={<LandingPage />} />
         </Routes>
-      // </div>
     )
 }
 
