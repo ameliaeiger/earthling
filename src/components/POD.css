@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "cafe";
+    src: url("../assets/cafe.ttf")
+  }
+
+.podImage {
+    max-height:65%;
+    max-width: 90%;
+    border-radius: 30px;
+    margin-top:2%;
+}

@@ -7,23 +7,22 @@ import "./Footer.css"
 
 
 const Footer = () => {
-    const footerHeight = window.screen.availHeight*.1
     return (
-        <div style={{
-            height:footerHeight,
-            width:window.screen.availWidth, 
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            position:"fixed",
-            bottom:0,
-            padding: "5px",
-            minHeight:100,
-            backgroundColor: "rgba(255,255,255, 0.5)"
-            }}>
-            <button>
-                Hello, World
-            </button>
+        <div style={styles.footer}>
+            <div className="buttonWrapper">
+                <Button
+                    className="navButton"
+                    variant="outlined"
+                    href="/">
+                    Landing
+                </Button>
+                <Button 
+                    className="navButton"
+                    variant="outlined"
+                    href="/dashboard">
+                    Dash
+                </Button>
+            </div>
         </div>
     )
 }
@@ -31,12 +30,18 @@ const Footer = () => {
 export default Footer
 
 const styles = {
-    navbar: {
+    footer:{
+        minHeight:"7vh",
+        width:"100vw", 
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
+        position:"fixed",
+        bottom:0,
         padding: "5px",
-        minHeight: 100, 
-        backgroundColor: "rgba(255,255,255, 0.5)",
+        borderTopLeftRadius:"10px",
+        borderTopRightRadius:"10px",
+        backgroundColor: "rgba(255,255,255, 0.2"
     },
     button: {
         height:"50px", 

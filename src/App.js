@@ -25,7 +25,11 @@ import DashboardPage from './pages/Dashboard'
 import image from "./assets/stars.jpg"
 
 //API CALLS
-import { fetchNASAData, fetchAPOD } from "./apiCalls"
+import { fetchNASAData, 
+  // fetchAPOD
+ } from "./apiCalls"
+
+
 
 const App = () => {
   const date = dayjs().format("YYYY-MM-DD")
@@ -37,32 +41,39 @@ const App = () => {
   const [startDate, setStartDate] = useState(date)
   const [endDate, setEndDate] = useState(dayjs(date).subtract(6, "day").format("YYYY-MM-DD"))
 
+
 // NASA DATA & OBJECT KEYS
   const [apodData, setApodData] = useState("")
   const [NASAData, setNASAData] = useState("")
   const [dateKeys, setDateKeys] = useState("")
-  // console.log(NASAData)
 
-  // useEffect(() => {
-  //   fetchNASAData(startDate, endDate).then(data => {
-  //     setNASAData(data)
-  //     setDateKeys(Object.keys(data.near_earth_objects))
-  //   })
-  //   fetchAPOD().then(data => {
-  //     console.log(data)
-  //     setApodData(data)
-  //     console.log(apodData)
-  //     setLoading(false)
-  //   })
-  // },[])
+  useEffect(() => {
+    fetchNASAData(startDate, endDate).then(data => {
+      setNASAData(data)
+      console.log("APP NASA DATA SET IN USE EFFECT", data)
+      setDateKeys(Object.keys(data.near_earth_objects))
+    })
+    // fetchAPOD().then(data => {
+    //   setApodData(data)
+    // })
+    setLoading(false)
+    console.log("APP LOADING", loading)
+  },[])
 
 
 
     return (
-      <div style={{height:dimensions.availHeight, width:dimensions.availWidth, backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
+      <div className="App" style={{minHeight:"100vh", minWidth:"100%", backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
         <Routes>
-          <Route path="/" element={<LandingPage image={image} dimensions={dimensions}/>} />
-          <Route exact path="/dashboard" element={<DashboardPage image={image} dimensions={dimensions}/>} />
+          <Route path="/" element={<LandingPage image={image}/>} />
+          <Route exact path="/dashboard" element={
+            <DashboardPage 
+              dimensions={dimensions} 
+              date={userFormattedDate}
+              startDate={startDate}
+              data={NASAData}
+              apodData={apodData}/>
+              } />
         </Routes>
       </div>
     )
@@ -72,7 +83,7 @@ export default App;
 
 const styles = {
   background: {
-    minHeight: "1500px",
+    minHeight: "100vh",
     backgroundSize: "cover",
   }
 }
