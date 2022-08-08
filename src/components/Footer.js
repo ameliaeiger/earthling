@@ -14,13 +14,13 @@ const Footer = () => {
                     className="navButton"
                     variant="outlined"
                     href="/">
-                    Landing
+                    HOME
                 </Button>
                 <Button 
                     className="navButton"
                     variant="outlined"
                     href="/dashboard">
-                    Dash
+                    Let's Go!
                 </Button>
             </div>
         </div>

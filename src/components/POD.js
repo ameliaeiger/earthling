@@ -35,11 +35,10 @@ const styles = {
         width:"100%",
         fontFamily: "cafe",
         display: "flex",
-        flexDirection:"column",
         borderRadius: "30px",
         alignItems:"center",
         backgroundColor: "rgba(255, 255, 255, 0.5)",
-        gridColumn: "1 / span 5",
+        gridColumn: "2 / span 4",
         gridRow: "3 / span 2",
     },
     podExplanation: {

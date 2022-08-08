@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react"
-import Button from "@mui/material/Button"
-import { AppBar, IconButton,  } from "@mui/material"
-
 import "./Header.css"
 import alien from "../assets/alien.png"
-
 
 const Header = () => {
     const [isLoaded, setIsLoaded] = useState(false)
@@ -45,8 +41,6 @@ const styles = {
         padding: "10px",
         minHeight: "10vh", 
         backgroundColor: "rgba(255,255,255, 0)",
-        // borderBottomRightRadius:"10px",
-        // borderBottomLeftRadius:"10px",
     },
     alien: {
         display:"flex",

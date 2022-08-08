@@ -57,9 +57,9 @@ const App = () => {
   },[])
 
     return (
-      <div className="App" style={{display:"flex", flexDirection:"column", height:"150%", minWidth:"100%", backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"center", justifyContent:"center"}}>
+      <div className="App" style={{display:"flex", flexDirection:"column", minHeight:"100vh", minWidth:"100%", backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"center"}}>
         <Routes>
-          <Route path="/" element={<LandingPage image={image}/>} />
+          <Route path="/" element={<LandingPage />} />
           <Route exact path="/dashboard" element={
             <DashboardPage 
               date={userFormattedDate}

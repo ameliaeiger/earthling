@@ -44,7 +44,7 @@ const DashboardPage = ({date, startDate, data, apodData}) => {
         display: "grid",
         maxHeight: "100vh",
         gridTemplateColumns: "10vw 15vw 15vw 15vw 15vw 10vh",
-        gridTemplateRows: "200px 200px 200px 200px",
+        gridTemplateRows: "200px 200px 200px 200px 200px 200px",
         gridGap: "3rem",
     },
     container: {
