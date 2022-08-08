@@ -59,7 +59,7 @@ const App = () => {
     return (
       <div className="App" style={{display:"flex", flexDirection:"column", minHeight:"100vh", minWidth:"100%", backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"center"}}>
         <Routes>
-          <Route path="https://lilearthling.herokuapp.com/" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage />} />
           <Route exact path="/dashboard" element={
             <DashboardPage 
               date={userFormattedDate}
