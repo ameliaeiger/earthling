@@ -50,7 +50,6 @@ const NEO = ({ data, date, startDate}) => {
                 Brag about it!
             </div>
             {displayText ? <TwitterShareButton
-            id="tweetButton"
             url={'https://www.jpl.nasa.gov/missions/near-earth-object-surveyor'}
             options={{ text: "Hooray! I survived " + displayText + "/" + displayText + " threats to humanity today!"}}
             /> : "loading"}

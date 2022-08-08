@@ -8,55 +8,49 @@ describe('empty spec', () => {
   })
 
 // SEARCH TESTING
-  // it('should display the dashboard', () => {
-  //   cy.get("div")
-  //     .should("have.class", "dashboard")
-  // })
+  it('should display the dashboard', () => {
+    cy.get("div")
+      .should("have.class", "dashboard")
+  })
 
-  // it('should have an input field that accepts a date', () => {
-  //     cy.get('#search').click().type("2022-08-06")
-  // })
+  it('should have an input field that accepts a date', () => {
+      cy.get('#search').click().type("2022-08-06")
+  })
 
-  // it('should have a clickable search button', () => {
-  //   cy.get('.MuiButtonBase-root').click()
-  // })
+  it('should have a clickable search button', () => {
+    cy.get('.MuiButtonBase-root').click()
+  })
 
-  // it('should display loading text after clicking search button', () => {
-  //   cy.get('#searchButton').click()
-  //   cy.get('#loadingText')
-  //     .should("be.visible")
-  // })
+  it('should display loading text after clicking search button', () => {
+    cy.get('#searchButton').click()
+    cy.get('#loadingText')
+      .should("be.visible")
+  })
 
-  // it('should display data', () => {
-  //   cy.get('#search').click().type("2022-08-06")
-  //   cy.get('#searchButton').click()
-  //   cy.get('#searchForm')
-  //     .should("be.visible")
-  //     .contains("2022-08-06")
-  // })
+  it('should display data', () => {
+    cy.get('#search').click().type("2022-08-06")
+    cy.get('#searchButton').click()
+    cy.get('#searchForm')
+      .should("be.visible")
+      .contains("2022-08-06")
+  })
 
-// NEO TESTING
+ // NEO TESTING
+  it('should display the NEO box', () => {
+    cy.get(".neoDisplayText")
+      .should("be.visible")
+  })
 
-it('should display the NEO box', () => {
-  cy.get(".neoDisplayText")
-    .should("be.visible")
-})
+  it('should have neo data', () => {
+    cy.get(".neoDisplayText")
+      .contains("9 near earth objects")
+  })
 
-it('should have neo data', () => {
-  cy.get(".neoDisplayText")
-    .contains("9 near earth objects")
-})
-
-// TWITTER FUNCTIONALITY TESTING
-
-it('should have a clickable tweet button', () => {
-  cy.get('#twitter-widget-0')
-    .should("be.visible")
-    .click()
-})
-
-// it('should direct to twitter when clicked', () => {
-//   cy.get('#twitter-widget-0').click()
-// })
-
+  // TWITTER FUNCTIONALITY TESTING
+  it('should have a clickable tweet button', () => {
+    cy.intercept('GET', "https://syndication.twitter.com/settings?session_id=7ced3121ae5cf041b00ee0f750d1f49fa92496cb")
+    cy.get('#twitter-widget-0')
+      .should("be.visible")
+      .click()
+  })
 })
