@@ -67,6 +67,7 @@ const App = () => {
               data={NASAData}
               apodData={apodData}/>
               } />
+          <Route path="*" element={<LandingPage />} />
         </Routes>
       </div>
     )
