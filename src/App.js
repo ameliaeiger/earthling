@@ -3,13 +3,13 @@ import React, { useEffect, useState } from "react"
 import {
   Routes,
   Route,
-  Link
 } from "react-router-dom"
-// import data from "./data.js"
-// import quotes from "./quotes"
 
 //LIBRARIES
 import dayjs from 'dayjs'
+
+//ASSETS
+import image from "./assets/stars.jpg"
 
 //COMPONENTS
 import NEO from "./components/NEO"
@@ -21,19 +21,16 @@ import Footer from "./components/Footer"
 import LandingPage from './pages/LandingPage'
 import DashboardPage from './pages/Dashboard'
 
-//ASSETS
-import image from "./assets/stars.jpg"
-
 //API CALLS
-import { fetchNASAData, 
-  // fetchAPOD
+import { 
+  fetchNASAData, 
+  fetchAPOD
  } from "./apiCalls"
 
 
 
 const App = () => {
   const date = dayjs().format("YYYY-MM-DD")
-  const [dimensions, setDimensions] = useState(window.screen)
   const [loading, setLoading] = useState(true)
 
   //DATES / DAY.JS
@@ -53,22 +50,18 @@ const App = () => {
       console.log("APP NASA DATA SET IN USE EFFECT", data)
       setDateKeys(Object.keys(data.near_earth_objects))
     })
-    // fetchAPOD().then(data => {
-    //   setApodData(data)
-    // })
+    fetchAPOD().then(data => {
+      setApodData(data)
+    })
     setLoading(false)
-    console.log("APP LOADING", loading)
   },[])
 
-
-
     return (
-      <div className="App" style={{minHeight:"100vh", minWidth:"100%", backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"space-between"}}>
+      <div className="App" style={{display:"flex", flexDirection:"column", minHeight:"100vh", minWidth:"100%", backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"center"}}>
         <Routes>
-          <Route path="/" element={<LandingPage image={image}/>} />
+          <Route path="/" element={<LandingPage />} />
           <Route exact path="/dashboard" element={
             <DashboardPage 
-              dimensions={dimensions} 
               date={userFormattedDate}
               startDate={startDate}
               data={NASAData}
@@ -80,14 +73,6 @@ const App = () => {
 }
 
 export default App;
-
-const styles = {
-  background: {
-    minHeight: "100vh",
-    backgroundSize: "cover",
-  }
-}
-
 
 
 

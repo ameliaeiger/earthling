@@ -6,13 +6,11 @@ import dayjs from 'dayjs'
 //COMPONENTS
 import Header from "../components/Header"
 import NEO from "../components/NEO"
-// import POD from "../components/POD"
+import POD from "../components/POD"
 import Alert from "../components/Alert"
 import Search from "../components/Search"
 
-const DashboardPage = ({date, startDate, data, 
-    // apodData
-}) => {
+const DashboardPage = ({date, startDate, data, apodData}) => {
 
 
     return (
@@ -23,7 +21,7 @@ const DashboardPage = ({date, startDate, data,
                     <Alert neoData={data.near_earth_objects} startDate={startDate} />
                     <Search />
                     <NEO data={data} date={date} startDate={startDate} />
-                    {/* <POD apodData={apodData} />       */}
+                    <POD apodData={apodData} />      
                 </div>
             </div>
         </>
@@ -34,6 +32,7 @@ const DashboardPage = ({date, startDate, data,
 
   const styles = {
     pageWrapper: {
+        display:"flex",
         minHeight: "100%",
         width:"100%",
         display: "flex",
@@ -45,7 +44,7 @@ const DashboardPage = ({date, startDate, data,
         display: "grid",
         maxHeight: "100vh",
         gridTemplateColumns: "10vw 15vw 15vw 15vw 15vw 10vh",
-        gridTemplateRows: "200px 200px 200px 200px",
+        gridTemplateRows: "200px 200px 200px 200px 200px 200px",
         gridGap: "3rem",
     },
     container: {
