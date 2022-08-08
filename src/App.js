@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import {
   Routes,
   Route,
+  Redirect,
 } from "react-router-dom"
 
 //LIBRARIES
@@ -67,7 +68,9 @@ const App = () => {
               data={NASAData}
               apodData={apodData}/>
               } />
-          <Route path="*" element={<LandingPage />} />
+          <Route path="*">
+            <Redirect to="/" />
+          </Route>
         </Routes>
       </div>
     )
