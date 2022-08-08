@@ -1,6 +1,7 @@
 import './App.css'
 import React, { useEffect, useState } from "react"
 import {
+  HashRouter,
   Routes,
   Route,
   Navigate,
@@ -59,19 +60,19 @@ const App = () => {
 
     return (
       <div className="App" style={{display:"flex", flexDirection:"column", minHeight:"100vh", minWidth:"100%", backgroundImage:`url(${image})`, backgroundSize:"cover", backgroundRepeat:"no-repeat", alignItems:"center"}}>
+      <HashRouter basename='/'>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route exact path="/dashboard" element={
+          <Route exact path="/" component={<LandingPage />} />
+          <Route path="/dashboard" component={
             <DashboardPage 
               date={userFormattedDate}
               startDate={startDate}
               data={NASAData}
               apodData={apodData}/>
               } />
-          <Route path="*">
-            <Navigate to="/" />
-          </Route>
+          <Route path="*" component={<LandingPage />} />
         </Routes>
+      </HashRouter>
       </div>
     )
 }
